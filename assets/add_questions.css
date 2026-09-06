@@ -1,0 +1,607 @@
+/* =========================================================
+   AI PREDICTION MARKET
+   ADD QUESTION PAGE
+   ========================================================= */
+
+/* ---------- RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.add-question-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 35px 25px;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.form-header {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 25px;
+}
+
+.back-link {
+    margin-bottom: 12px;
+}
+
+.back-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.back-link a:hover {
+    color: #1d4ed8;
+    transform: translateX(-2px);
+}
+
+.form-header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 5px;
+}
+
+.form-header p {
+    color: #6b7280;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+.form-message {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 20px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid transparent;
+}
+
+.form-message.error {
+    background: #fef2f2;
+    color: #b91c1c;
+    border-color: #fecaca;
+}
+
+.form-message.success {
+    background: #ecfdf5;
+    color: #047857;
+    border-color: #a7f3d0;
+}
+
+
+/* =========================================================
+   FORM CARD
+   ========================================================= */
+
+.form-card {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+    overflow: hidden;
+}
+
+
+/* ---------- CARD HEADER ---------- */
+
+.form-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 25px 30px;
+    background: linear-gradient(135deg, #eff6ff, #ffffff);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.form-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #dbeafe;
+    font-size: 25px;
+    flex-shrink: 0;
+}
+
+.form-card-header h2 {
+    font-size: 21px;
+    color: #111827;
+    margin-bottom: 2px;
+}
+
+.form-card-header p {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.form-card form {
+    padding: 30px;
+}
+
+
+/* ---------- FORM ROW ---------- */
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+
+/* ---------- FORM GROUP ---------- */
+
+.form-group {
+    margin-bottom: 23px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #374151;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    color: #111827;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.form-group input,
+.form-group select {
+    height: 46px;
+}
+
+.form-group textarea {
+    min-height: 130px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+   ========================================================= */
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9ca3af;
+}
+
+
+/* =========================================================
+   SMALL HELP TEXT
+   ========================================================= */
+
+.form-group small {
+    display: block;
+    margin-top: 6px;
+    color: #6b7280;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SELECT
+   ========================================================= */
+
+.form-group select {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   AI PREDICTION PERCENTAGE
+   ========================================================= */
+
+.ai-percentage-group {
+    position: relative;
+}
+
+.ai-percentage-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.ai-percentage-wrapper input {
+    padding-right: 50px;
+}
+
+.ai-percentage-symbol {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 15px;
+    font-weight: 700;
+    color: #2563eb;
+    pointer-events: none;
+}
+
+.ai-percentage-help {
+    display: block;
+    margin-top: 7px;
+    color: #6b7280;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   PREVIEW BOX
+   ========================================================= */
+
+.preview-box {
+    margin-top: 5px;
+    margin-bottom: 28px;
+    padding: 22px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+}
+
+.preview-box h3 {
+    font-size: 17px;
+    color: #111827;
+    margin-bottom: 18px;
+}
+
+
+/* ---------- PREVIEW GRID ---------- */
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.preview-grid > div {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.preview-grid span {
+    display: block;
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 5px;
+}
+
+.preview-grid strong {
+    display: block;
+    font-size: 15px;
+    color: #111827;
+}
+
+
+/* =========================================================
+   AI PREVIEW
+   ========================================================= */
+
+.preview-ai {
+    text-align: center;
+}
+
+.preview-ai strong {
+    font-size: 24px;
+    color: #2563eb;
+}
+
+.preview-ai span {
+    margin-bottom: 4px;
+}
+
+
+/* =========================================================
+   BETTING TIME PREVIEW
+   ========================================================= */
+
+.preview-time strong {
+    color: #059669;
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+   ========================================================= */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    padding-top: 5px;
+}
+
+
+/* ---------- CANCEL BUTTON ---------- */
+
+.cancel-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 110px;
+    height: 46px;
+    padding: 0 20px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    color: #374151;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.cancel-btn:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+
+/* ---------- CREATE QUESTION BUTTON ---------- */
+
+.create-question-btn {
+    min-width: 160px;
+    height: 46px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.create-question-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.25);
+}
+
+.create-question-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.dashboard-footer {
+    width: 100%;
+    max-width: 1100px;
+    margin: 25px auto 0;
+    padding: 18px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #6b7280;
+    font-size: 13px;
+    border-top: 1px solid #e5e7eb;
+}
+
+
+/* =========================================================
+   INVALID INPUT
+   ========================================================= */
+
+.form-group input:invalid:not(:placeholder-shown),
+.form-group textarea:invalid:not(:placeholder-shown) {
+    border-color: #d1d5db;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .add-question-page {
+        padding: 25px 18px;
+    }
+
+    .form-header h1 {
+        font-size: 28px;
+    }
+
+    .form-card-header {
+        padding: 22px;
+    }
+
+    .form-card form {
+        padding: 22px;
+    }
+
+    .preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .add-question-page {
+        padding: 18px 12px;
+    }
+
+    .form-header h1 {
+        font-size: 24px;
+    }
+
+    .form-header p {
+        font-size: 13px;
+    }
+
+    .form-card {
+        border-radius: 14px;
+    }
+
+    .form-card-header {
+        padding: 18px;
+        gap: 12px;
+    }
+
+    .form-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 21px;
+        border-radius: 11px;
+    }
+
+    .form-card-header h2 {
+        font-size: 18px;
+    }
+
+    .form-card-header p {
+        font-size: 12px;
+    }
+
+    .form-card form {
+        padding: 18px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .form-group {
+        margin-bottom: 19px;
+    }
+
+    .preview-box {
+        padding: 16px;
+    }
+
+    .preview-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+
+    .cancel-btn,
+    .create-question-btn {
+        width: 100%;
+    }
+
+    .dashboard-footer {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .form-header h1 {
+        font-size: 21px;
+    }
+
+    .form-card-header {
+        align-items: flex-start;
+    }
+
+    .form-group input,
+    .form-group select {
+        height: 44px;
+        font-size: 14px;
+    }
+
+    .form-group textarea {
+        font-size: 14px;
+    }
+
+    .preview-ai strong {
+        font-size: 22px;
+    }
+}
